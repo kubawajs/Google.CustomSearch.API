@@ -23,9 +23,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/search", async (string searchPhrase, IGoogleCustomSearchApiService service) =>
+app.MapGet("/search", async (string searchPhrase, int page, int size, IGoogleCustomSearchApiService service) =>
 {
-    return await service.SearchAsync(searchPhrase);
+    return await service.SearchAsync(searchPhrase, page, size);
 })
 .WithName("GetSearchResults");
 

@@ -2,6 +2,6 @@
 {
     public interface IGoogleCustomSearchApiService
     {
-        Task<GoogleSearchResult> SearchAsync(string searchPhrase);
+        Task<GoogleSearchResult> SearchAsync(string searchPhrase, int pageNumber, int pageSize);
     }
 }

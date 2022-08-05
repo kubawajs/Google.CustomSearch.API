@@ -14,7 +14,7 @@ internal class GoogleCustomSearchApiService : IGoogleCustomSearchApiService
         _configuration = options.Value;
     }
 
-    public async Task<GoogleSearchResult> SearchAsync(string searchPhrase)
+    public async Task<GoogleSearchResult> SearchAsync(string searchPhrase, int pageNumber, int pageSize)
     {
         var searchService = new CustomsearchService(new BaseClientService.Initializer
         {
@@ -24,6 +24,8 @@ internal class GoogleCustomSearchApiService : IGoogleCustomSearchApiService
         var listRequest = searchService.Cse.List();
         listRequest.Cx = _configuration.Cx;
         listRequest.Q = searchPhrase;
+        listRequest.Num = pageSize < 10 ? pageSize : 10; // Number of results (cannot be more than 10)
+        listRequest.Start = (pageNumber - 1) * pageSize; // Start index
 
         var results = await listRequest.ExecuteAsync();
         if(results == null)
@@ -32,6 +34,6 @@ internal class GoogleCustomSearchApiService : IGoogleCustomSearchApiService
         }
 
         var items = results.Items?.Select(x => new GoogleSearchResultItem(x.Title, x.Snippet, x.Link)) ?? new List<GoogleSearchResultItem>();
-        return new GoogleSearchResult(int.Parse(results.SearchInformation.TotalResults), items);
+        return new GoogleSearchResult(int.Parse(results.SearchInformation.TotalResults), pageNumber, pageSize, items);
     }
 }
