@@ -6,9 +6,9 @@ Project was created as a part of blog post which contains detailed description:
 
 ## Getting Started
 
-Clone repository.
-Paste ApiKey and CX in **appsettings.json**.
-Build solution.
+1. Clone repository.
+2. Paste _ApiKey_ and _CX_ in **appsettings.json**.
+3. Build solution.
 
 ### Prerequisites
 
