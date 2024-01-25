@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>93c619d4-5278-49d3-8aca-83e6ab3650c4</UserSecretsId>
@@ -10,9 +10,9 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.49.0.2084" />
-    <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.57.0.2455" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.16.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.66.0.3290" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
 </Project>
